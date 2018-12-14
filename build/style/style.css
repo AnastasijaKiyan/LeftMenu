@@ -1,0 +1,10 @@
+.leftmenu-title {
+  display: flex;
+  flex-wrap: wrap;
+  backround-color: #12a099;
+  color: ffffff;
+  width: 260px;
+  height: 50px;
+  left: 45px;
+  top: 25px;
+  position: relative; }
