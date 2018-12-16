@@ -1,29 +1,26 @@
-import React, { createElement } from 'react';
-import { IList } from "../../type/IList";
-import datacategorys from "../../data/datacategory";
-import Item from '../item/item'
+import React, { Component } from 'react';
+import { IState } from '../../type/IState';
+import * as Reducer from '../../reducer/reducer'
+import Item from '../item/item';
+import { IItem } from '../../type/IItem';
 
-
-const List = (props: IList): JSX.Element | null => {
-    const items = props.item.map(elem =>
-      createElement(Item, { ...elem, key: elem.id })
-    );
-    if (items.length < 1) return null;
-    return (
-        <section>
-            <h1>
-                {
-                    props.category
-                }
-            </h1>
-            <div>
-                {
-                    items
-                }
-            </div>
-
-        </section>
-    )
+interface IProps {
+    categoryId: number
 }
 
-export default List;
+export default class List extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+    }
+
+    render() {
+        let allItems: IItem[] = Reducer.store.getState().items;
+        let filteredItems: IItem[] = allItems.filter((i) => i.field == this.props.categoryId);
+
+        if (Reducer.condition.selectedCategoryId != this.props.categoryId) {
+            return null;
+        } else {
+            return <Item key={this.props.categoryId} categoryId={this.props.categoryId} />
+       }
+    }
+}

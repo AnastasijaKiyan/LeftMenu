@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { ILeftMenu } from '../../type/ILeftMenu'
+import { ILeftMenu } from '../../type/ILeftMenu';
 import Title from "../title/title";
 import Section from "../section/section";
 
-// import from "./leftmenu.sass";
+import "./leftmenu.sass";
 
 class LeftMenu extends Component {
   constructor(props: ILeftMenu) {
@@ -12,11 +12,10 @@ class LeftMenu extends Component {
 
   render() {
     return (
-      <div>
+      <div className="leftmenu-main">
         <Title />
         <Section />
       </div>
-      
     );
   }
 }

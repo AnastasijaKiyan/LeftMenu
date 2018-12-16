@@ -1,13 +1,13 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import "./title.sass";
 
 const Title = (): JSX.Element | null => {
-    
+
     return (
         <section className="leftmenu-title">
-            <img className="leftmenu-title-logo" src="logo.png"/>
+            <a href="#"><img className="leftmenu-title-logo" src="../../pict/logo.png" /></a>
             <div className="leftmenu-title-text">
-            ADVERTISUNG MODULE
+                advertising module
             </div>
         </section>
     )

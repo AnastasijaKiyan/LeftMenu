@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import LeftMenu from './component/leftmenu/leftmenu';
 import { IState } from './type/IState';
+import * as Reducer from './reducer/reducer'
+
+import "./style/index.sass";
 
 
   class App extends Component<{}, IState> {
-    // state: IState = Controller.store.getState();
-    // unsubscribe = () => { };
+    state: IState = Reducer.store.getState();
+    unsubscribe = () => { };
   
-    // componentDidMount(): void {
-    //   this.unsubscribe = Controller.store.subscribe(() => {
-    //     this.setState(Controller.store.getState())
-    //   });
-    // }
+    componentDidMount(): void {
+      this.unsubscribe = Reducer.store.subscribe(() => {
+        this.setState(Reducer.store.getState())
+      });
+     }
   
-    // componentWillUnmount(): void {
-    //   this.unsubscribe();
-    // }
+    componentWillUnmount(): void {
+       this.unsubscribe();
+    }
 
   render(): JSX.Element {
     return (

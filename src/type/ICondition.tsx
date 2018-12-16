@@ -1,5 +1,4 @@
 export interface ICondition {
-  search: string;
-  lang: string[];
+  selectedCategoryId: number | null
 }
 

@@ -1,6 +1,6 @@
 import { IItem } from '../type/IItem';
 
-let dataitem: IItem[] = [
+let dataItems: IItem[] = [
     {
         "id": 0,
         "name": "Node.js",
@@ -128,4 +128,4 @@ let dataitem: IItem[] = [
     }
 ];
 
- export default dataitem;
+ export default dataItems;

@@ -1,29 +1,22 @@
 import React from "react";
-import { IItem } from "../../type/IItem";
-import { ICategory } from '../../type/ICategory';
-import List from "../list/list";
-import datacategorys from "../../data/datacategory";
-import { ISection } from '../../type/ISection';
-// import { IState } from '';
+import { ICategory } from "../../type/ICategory";
+import Category from "../category/category";
+import { condition, store } from '../../reducer/reducer'
+import { IState } from "../../type/IState";
 
-// const Section = (props?: ISection): JSX.Element | null => {
 const Section = (): JSX.Element => {
+  const state: IState = store.getState();
   return (
     <section>
-{/* 
-      {datacategorys.map(
-        (category: ICategory): JSX.Element => {
-          return (
-            <List
-              key={category.id}
-              category={category.name}
-              item={this.state.item.filter(
-                (item: IItem) => item.field === category.id
-              )}
-            />
-          );
-        }
-      )} */}
+      {
+        state.categories.map(
+          (category): JSX.Element => {
+            return (
+              <Category key={category.id} name={category.name} id={category.id} />
+            )
+          }
+        )
+      }
     </section>
   );
 };
