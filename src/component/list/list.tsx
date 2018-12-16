@@ -20,7 +20,17 @@ export default class List extends React.Component<IProps, IState> {
         if (Reducer.condition.selectedCategoryId != this.props.categoryId) {
             return null;
         } else {
-            return <Item key={this.props.categoryId} categoryId={this.props.categoryId} />
-       }
+            return (
+                <div>
+                    {
+                        filteredItems.map(
+                            (item): JSX.Element => {
+                                return <Item key={item.id} name={item.name}/>
+                            }
+                        )
+                    }
+                </div>
+            )
+        }
     }
 }

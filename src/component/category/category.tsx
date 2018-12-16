@@ -4,6 +4,8 @@ import List from '../list/list';
 import { IState } from '../../type/IState';
 import * as Reducer from '../../reducer/reducer'
 
+import './category.sass';
+
 
 interface IProps {
     id: number,
@@ -11,7 +13,7 @@ interface IProps {
 }
 
 
-class Category extends React.Component<IProps, IState> {
+export default class Category extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
     }
@@ -28,10 +30,13 @@ class Category extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <section className="category">
-                <h1 className="title" onClick={(e) => this.press(this.props.id, e)}>
-                    {this.props.name}
-                </h1>
+            <section className="leftmenu-category">
+                <div onClick={(e) => this.press(this.props.id, e)}>
+                <div className="leftmenu-category-image" />
+                    <h1 className="leftmenu-category-title" >
+                        {this.props.name}
+                    </h1>
+                </div>
                 <List
                     key={this.props.id}
                     categoryId={this.props.id}
@@ -40,5 +45,3 @@ class Category extends React.Component<IProps, IState> {
         )
     }
 }
-
-export default Category;

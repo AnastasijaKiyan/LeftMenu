@@ -16,42 +16,28 @@ exports.__esModule = true;
 var react_1 = require("react");
 require("./category.sass");
 var list_1 = require("../list/list");
+var Reducer = require("../../reducer/reducer");
 var Category = /** @class */ (function (_super) {
     __extends(Category, _super);
     function Category(props) {
         return _super.call(this, props) || this;
     }
     Category.prototype.press = function (id, e) {
-        console.log(id);
-        console.log(e);
-        debugger;
+        if (Reducer.condition.selectedCategoryId != id) {
+            Reducer.condition.selectedCategoryId = id;
+        }
+        else {
+            Reducer.condition.selectedCategoryId = null;
+        }
+        var action = { type: "setSelectedCategotyId" };
+        Reducer.store.dispatch(action);
     };
     Category.prototype.render = function () {
         var _this = this;
-        return (react_1["default"].createElement("section", { className: "category", onClick: function (e) { return _this.press(_this.props.id, e); } },
-            react_1["default"].createElement("h1", { className: "title" }, this.props.name),
+        return (react_1["default"].createElement("section", { className: "category" },
+            react_1["default"].createElement("h1", { className: "title", onClick: function (e) { return _this.press(_this.props.id, e); } }, this.props.name),
             react_1["default"].createElement(list_1["default"], { key: this.props.id, categoryId: this.props.id })));
     };
     return Category;
 }(react_1["default"].Component));
-/*
-const Category = (props: IProps): JSX.Element | null => {
-    function press(e) {
-
-    }
-
-    return (
-        <section className="category">
-            <h1 className="title">
-                {props.name}
-            </h1>
-            <List
-                key={props.id}
-                categoryId={props.id}
-            />
-        </section>
-    )
-}
-*/
-//const Category = (props): JSX.Element => (<p className="leftmenu-section-category">{props.name} </p>)
 exports["default"] = Category;
