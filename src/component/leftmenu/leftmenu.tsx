@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { ILeftMenu } from '../../type/ILeftMenu';
 import Title from "../title/title";
 import Section from "../section/section";
 
 import "./leftmenu.sass";
 
 class LeftMenu extends Component {
-  constructor(props: ILeftMenu) {
+  constructor(props: any) {
     super(props);
   }
 

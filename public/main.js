@@ -156,13 +156,16 @@ function (_React$Component) {
       var _this = this;
 
       return _react.default.createElement("section", {
-        className: "category"
-      }, _react.default.createElement("h1", {
-        className: "title",
+        className: "leftmenu-category"
+      }, _react.default.createElement("div", {
         onClick: function onClick(e) {
           return _this.press(_this.props.id, e);
         }
-      }, this.props.name), _react.default.createElement(_list.default, {
+      }, _react.default.createElement("div", {
+        className: "leftmenu-category-image"
+      }), _react.default.createElement("h1", {
+        className: "leftmenu-category-title"
+      }, this.props.name)), _react.default.createElement(_list.default, {
         key: this.props.id,
         categoryId: this.props.id
       }));
@@ -663,9 +666,6 @@ exports.store = store;
 "use strict";
 "use strict";
 "use strict";
-"use strict";
-
-;
 "use strict";
 "use strict";
 "use strict";

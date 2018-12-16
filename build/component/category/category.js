@@ -17,6 +17,7 @@ var react_1 = require("react");
 require("./category.sass");
 var list_1 = require("../list/list");
 var Reducer = require("../../reducer/reducer");
+require("./category.sass");
 var Category = /** @class */ (function (_super) {
     __extends(Category, _super);
     function Category(props) {
@@ -34,8 +35,10 @@ var Category = /** @class */ (function (_super) {
     };
     Category.prototype.render = function () {
         var _this = this;
-        return (react_1["default"].createElement("section", { className: "category" },
-            react_1["default"].createElement("h1", { className: "title", onClick: function (e) { return _this.press(_this.props.id, e); } }, this.props.name),
+        return (react_1["default"].createElement("section", { className: "leftmenu-category" },
+            react_1["default"].createElement("div", { onClick: function (e) { return _this.press(_this.props.id, e); } },
+                react_1["default"].createElement("div", { className: "leftmenu-category-image" }),
+                react_1["default"].createElement("h1", { className: "leftmenu-category-title" }, this.props.name)),
             react_1["default"].createElement(list_1["default"], { key: this.props.id, categoryId: this.props.id })));
     };
     return Category;

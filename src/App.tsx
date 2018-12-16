@@ -3,7 +3,7 @@ import LeftMenu from './component/leftmenu/leftmenu';
 import { IState } from './type/IState';
 import * as Reducer from './reducer/reducer'
 
-import "./style/index.sass";
+import "./index.sass";
 
 
   class App extends Component<{}, IState> {
